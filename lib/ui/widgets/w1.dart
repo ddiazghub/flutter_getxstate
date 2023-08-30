@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../state/counter.dart';
 
 class W1 extends StatelessWidget {
-  const W1({super.key});
+  W1({super.key});
+
+  final Counter counter = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.amber,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Value'),
-          ElevatedButton(onPressed: null, child: Text('Increment'))
+          Obx(() => Text(counter.value.toString())),
+          ElevatedButton(onPressed: () => counter.increment(), child: const Text('Increment'))
         ],
       ),
     );

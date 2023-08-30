@@ -1,11 +1,14 @@
+import 'package:f_getxstate_demo/ui/state/counter.dart';
 import 'package:flutter/material.dart';
 import 'ui/pages/main_page.dart';
+import 'package:get/get.dart';
 
 void main() {
+  Get.put(Counter());
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends GetMaterialApp {
   const MyApp({super.key});
 
   @override

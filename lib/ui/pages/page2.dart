@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../state/counter.dart';
 
 class Page2 extends StatelessWidget {
-  const Page2({super.key});
+  Page2({super.key});
+
+  final Counter counter = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +15,12 @@ class Page2 extends StatelessWidget {
         title: const Text('Page 2'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Value'),
-            ElevatedButton(onPressed: null, child: Text('Increment'))
+            Obx(() => Text(counter.value.toString())),
+            ElevatedButton(onPressed: () => counter.increment(), child: const Text('Increment'))
           ],
         ),
       ),

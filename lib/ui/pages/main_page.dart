@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           const Spacer(),
-          const Expanded(
+          Expanded(
             flex: 2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -32,11 +32,14 @@ class MainPage extends StatelessWidget {
             flex: 2,
             child: Center(
               child: ElevatedButton(
-                  onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Page2()),
-                      ),
-                  child: const Text('Page 2')),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Page2(),
+                  ),
+                ),
+                child: const Text('Page 2'),
+              ),
             ),
           )
         ],
